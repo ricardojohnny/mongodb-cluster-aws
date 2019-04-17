@@ -1,0 +1,32 @@
+---
+# Esse Playbook roda e faz deploy de todos os item da common
+- name: Adicionando o MongoDB GPG key.
+  rpm_key: state=present key=https://www.mongodb.org/static/pgp/server-4.0.asc
+
+- name: Criando o repositorio do Mongo
+  copy: src=eemovel.repo.j2 dest=/etc/yum.repos.d/mongodb.repo
+
+- name: Criando o usuario do mongod
+  user: name=mongod comment="MongoD"
+
+- name: Criando o diretorio data para o namenode metadata
+  file: path={{ mongodb_datadir_prefix }} owner=mongod group=mongod state=directory
+
+- name: criando o diretorio de logs do mongodb
+  file: path=/var/log/mongodb state=directory owner=mongod group=mongod
+
+- name: Instalando o pacote do MongoDB
+  yum: name={{ packages }} state=installed
+  vars:
+   packages:
+   - mongodb-org
+   - mongodb-org-server
+   - bc
+   - python2-pip
+   - ntp
+
+- name: Habilitando o NTPD
+  service: name=ntpd enabled=yes state=started
+
+- name: Instalando o pacote do Pymongo
+  pip: name=pymongo state=latest use_mirrors=no

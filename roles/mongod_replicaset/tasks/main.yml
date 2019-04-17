@@ -1,0 +1,18 @@
+---
+# Replicação segura usando o segredo
+- name: Copie o arquivo de chaves para autenticação replicada
+  copy: src=secret dest={{ mongodb_datadir_prefix }}secret owner=mongod group=mongod mode=0400
+
+- name: Crie o arquivo de configuração mongodb autenticado
+  template: src=mongod.conf.j2 dest=/etc/mongod.conf
+
+- name: Restart mongodb
+  service: name=mongod enabled=yes state=restarted
+
+- name: Crie o arquivo para inicializar o replicaset
+  template: src=repset_init.j2 dest=/tmp/repset_init.js
+
+- name: Inicialize o conjunto de replicação no primary
+  shell: /usr/bin/mongo {{ groups["mongod_primary"][0] }}:{{ mongod_port }}/admin -u admin -p {{ mongo_admin_pass }} /tmp/repset_init.js
+  run_once: true
+  when: inventory_hostname in groups['mongod_primary']

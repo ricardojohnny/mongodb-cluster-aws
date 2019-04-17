@@ -1,0 +1,9 @@
+---
+# instala o replica set nos slaves
+- name: Cria o arquivo e adiciona o atual node como replica set
+  template: src=repset_add.j2 dest=/tmp/repset_add.js
+
+- name: Adiciona o atual node como replication set
+  shell: /usr/bin/mongo -u admin -p {{ mongo_admin_pass }} --authenticationDatabase admin -host {{ groups["mongod_primary"][0] }}:{{ hostvars[groups["mongod_primary"][0]]["mongod_port"] }} /tmp/repset_add.js
+  args:
+    creates: addNodeToReplicaset

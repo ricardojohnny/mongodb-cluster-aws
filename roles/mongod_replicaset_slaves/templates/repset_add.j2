@@ -1,0 +1,2 @@
+rs.add("{{ ansible_eth0.ipv4.address }}:{{ mongod_port }}");
+printjson(rs.status());

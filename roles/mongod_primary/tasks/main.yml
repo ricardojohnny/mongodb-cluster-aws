@@ -1,0 +1,18 @@
+---
+# Precisamos começar o mongo sem autenticação ou um keyfile habilitado primeiro,
+# caso contrário não é possível configurar os usuários, então a primeira versão
+# da configuração não terá autenticação habilitada.
+
+- name: Criando o arquivo de configuração unauthenticated do mongodb
+  template: src=mongod_unauthenticated.conf.j2 dest=/etc/mongod.conf
+
+- name: Habilitando o mongodb no start
+  service: name=mongod enabled=yes state=started
+
+- name: Crie o arquivo para criar o usuário admin
+  template: src=create_user.j2 dest=/tmp/create_user.js
+
+- name: Criando o usuario admin
+  shell: /usr/bin/mongo localhost:{{ mongod_port }}/admin /tmp/create_user.js
+  run_once: true
+  ignore_errors: true

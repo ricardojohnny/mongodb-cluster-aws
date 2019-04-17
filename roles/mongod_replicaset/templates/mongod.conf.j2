@@ -1,0 +1,23 @@
+--- 
+net: 
+  bindIp: "0.0.0.0"
+  port: {{mongod_port}}
+processManagement:
+  fork: true
+  pidFilePath: /var/run/mongo/mongod.pid
+storage: 
+  dbPath: {{mongodb_datadir_prefix}}
+  journal: 
+    enabled: {% if 'mongod_arbiters' in group_names %}false{% else %}true{% endif %}
+{% if 'mongod_arbiters' in group_names %}
+  mmapv1:
+    smallFiles: true
+{% endif %}    
+systemLog:
+  destination: file
+  logAppend: true
+  path: {{mongodb_logdir_prefix}}/mongod.log
+security:
+  keyFile: {{ mongodb_datadir_prefix }}secret
+replication:
+  replSetName: {{ replica_set_name }}

@@ -1,0 +1,8 @@
+---
+- name: Crie o arquivo para adicionar o noh atual ao conjunto de replicas como um arbitro
+  template: src=repset_addArbiter.j2 dest=/tmp/repset_addArbiter.js
+
+- name: Add arbiter to the replication set
+  shell: /usr/bin/mongo -u admin -p {{ mongo_admin_pass }} --authenticationDatabase admin -host {{ groups["mongod_primary"][0] }}:{{ hostvars[groups["mongod_primary"][0]]["mongod_port"] }} /tmp/repset_addArbiter.js
+  args:
+    creates: addArbiterToReplicaset

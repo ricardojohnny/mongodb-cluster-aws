@@ -1,0 +1,8 @@
+---
+# Essa role faz deploy dos processos do mongo.
+- name: criando o diretorio da para o mongodb data members
+  file: path={{ mongodb_datadir_prefix }}/db state=directory owner=mongod group=mongod
+
+- name: criando o diretorio arb para mongodb arbitros
+  file: path={{ mongodb_datadir_prefix }}/arb state=directory owner=mongod group=mongod
+  

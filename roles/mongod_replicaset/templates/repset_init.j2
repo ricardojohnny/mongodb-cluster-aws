@@ -1,0 +1,2 @@
+rs.initiate({ _id: "{{ replica_set_name }}", members: [ { _id: 1, host: "{{ ansible_eth0.ipv4.address }}" } ] });
+printjson(rs.status());

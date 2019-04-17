@@ -1,0 +1,15 @@
+# List dos mongodb servers
+
+[mongo_servers]
+172.31.201.115 mongod_port=27017
+172.31.201.35 mongod_port=27017
+172.31.201.86 mongod_port=27017
+
+[mongod_primary]
+172.31.201.115 mongod_port=27017
+
+[mongod_slaves]
+172.31.201.35 mongod_port=27017
+172.31.201.86 mongod_port=27017
+
+[mongod_arbiters]

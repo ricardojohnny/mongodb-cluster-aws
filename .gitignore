@@ -1,0 +1,4 @@
+/.vagrant
+*.pem
+credentials.csv
+terraform.tfstate*

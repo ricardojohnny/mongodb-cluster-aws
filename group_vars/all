@@ -1,0 +1,26 @@
+---
+# Arquivo com as variaveis globabis da instalação do mongodb
+
+# O chunksize para os shards em MB
+mongos_chunk_size: 1
+
+# A porta do mongos server
+mongos_port: 8888
+
+# A porta do mongo config server
+mongoc_port: 7777
+
+# Diretorio da base de dados
+mongodb_datadir_prefix: /var/lib/mongo
+
+# Diretorio de Logs
+mongodb_logdir_prefix: /var/log/mongodb
+
+# A standard port.
+mongod_port: 27017
+
+# O nome da replication set
+replica_set_name: mongo_replication
+
+# Admin password
+mongo_admin_pass: 123456
