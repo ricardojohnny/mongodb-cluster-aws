@@ -42,9 +42,9 @@ _10.0.0.105      mongo4
 - openssl rand -base64 741 > secret
 - openssl rand -base64 741 > secret
     
-    *mongo_replication:PRIMARY> use admin
-    *switched to db admin
-    *mongo_replication:PRIMARYopenssl rand -base64 741 > secreteemovel", "123456")
+    ```mongo_replication:PRIMARY> use admin
+    switched to db admin
+    mongo_replication:PRIMARYopenssl rand -base64 741 > secreteemovel", "123456")
     1
     mongo_replication:PRIMARYopenssl rand -base64 741 > secret()
     {
@@ -137,7 +137,7 @@ _10.0.0.105      mongo4
     		}
     	],
     	"ok" : 1
-    }
+    }```
 
 ### Scaling Cluster
 ---------------------------------------
