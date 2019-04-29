@@ -30,7 +30,7 @@ _10.0.0.105      mongo4
 [mongod_arbiters]
 - mongo5
 
-# Build:
+#### Build:
 
 - openssl rand -base64 741 > secretreate_cluster.yml -u root -k
     
@@ -138,7 +138,7 @@ Adicionando novos hosts
 
     ansible-playbook -i hosts 02_update_cluster.yml -u root -k
 
-###Serverspec
+### Serverspec
 
 Verificando os servers usando serverspec com ansible_spec
 
