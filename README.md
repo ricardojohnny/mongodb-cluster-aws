@@ -1,49 +1,50 @@
 ## Setup MongoDB na Amazon
 
-10.0.0.101      mongo1
-10.0.0.102      mongo2
-10.0.0.103      mongo3
-10.0.0.104      mongo4
-10.0.0.105      mongo4
+_10.0.0.101      mongo1
+_10.0.0.102      mongo2
+_10.0.0.103      mongo3
+_10.0.0.104      mongo4
+_10.0.0.105      mongo4
 
 - The secret
 
-    openssl rand -base64 741 > secret
+- openssl rand -base64 741 > secret
 
 ### Deployment Exemplo
 
 [mongo_servers]
-mongo1 mongod_port=27017
-mongo2 mongod_port=27017
-mongo3 mongod_port=27017
-mongo4 mongod_port=27017
-mongo5 mongod_port=27017
+- mongo1 mongod_port=27017
+- mongo2 mongod_port=27017
+- mongo3 mongod_port=27017
+- mongo4 mongod_port=27017
+- mongo5 mongod_port=27017
 
 [mongod_primary]
-mongo1 mongod_port=27017
+- mongo1 mongod_port=27017
 
 [mongod_slaves]
-mongo2 mongod_port=27017
-mongo3 mongod_port=27017
-mongo4 mongod_port=27017
+- mongo2 mongod_port=27017
+- mongo3 mongod_port=27017
+- mongo4 mongod_port=27017
 
 [mongod_arbiters]
-mongo5
+- mongo5
 
-Build:
+# Build:
 
-openssl rand -base64 741 > secretreate_cluster.yml -u root -k
-openssl rand -base64 741 > secret
-openssl rand -base64 741 > secret
-openssl rand -base64 741 > secret
-openssl rand -base64 741 > secret
-openssl rand -base64 741 > secret17
-openssl rand -base64 741 > secret
-openssl rand -base64 741 > secret
-openssl rand -base64 741 > secret
-    mongo_replication:PRIMARY> use admin
-    switched to db admin
-    mongo_replication:PRIMARYopenssl rand -base64 741 > secreteemovel", "123456")
+- openssl rand -base64 741 > secretreate_cluster.yml -u root -k
+- openssl rand -base64 741 > secret
+- openssl rand -base64 741 > secret
+- openssl rand -base64 741 > secret
+- openssl rand -base64 741 > secret
+- openssl rand -base64 741 > secret17
+- openssl rand -base64 741 > secret
+- openssl rand -base64 741 > secret
+- openssl rand -base64 741 > secret
+    
+    *mongo_replication:PRIMARY> use admin
+    *switched to db admin
+    *mongo_replication:PRIMARYopenssl rand -base64 741 > secreteemovel", "123456")
     1
     mongo_replication:PRIMARYopenssl rand -base64 741 > secret()
     {
@@ -138,7 +139,7 @@ openssl rand -base64 741 > secret
     	"ok" : 1
     }
 
-### Scaling o Cluster
+### Scaling Cluster
 ---------------------------------------
 
 Adicionando novos hosts
