@@ -10,7 +10,7 @@ _10.0.0.105      mongo4
 
 - openssl rand -base64 741 > secret
 
-### Deployment Exemplo
+### Deploy Exemplo
 
 [mongo_servers]
 - mongo1 mongod_port=27017
