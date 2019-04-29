@@ -33,14 +33,6 @@ _10.0.0.105      mongo4
 # Build:
 
 - openssl rand -base64 741 > secretreate_cluster.yml -u root -k
-- openssl rand -base64 741 > secret
-- openssl rand -base64 741 > secret
-- openssl rand -base64 741 > secret
-- openssl rand -base64 741 > secret
-- openssl rand -base64 741 > secret17
-- openssl rand -base64 741 > secret
-- openssl rand -base64 741 > secret
-- openssl rand -base64 741 > secret
     
     ```mongo_replication:PRIMARY> use admin
     switched to db admin
